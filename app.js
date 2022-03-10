@@ -29,7 +29,7 @@ app.post("/", (req, res) => {
     const lastName = req.body.lname;
     const email = req.body.email;
 
-    const listID = "f9fc6216f";
+    const listID = "f9fc6216f0";
     // Creating an object with the users data
     // const subscribingUser = {
     //     firstName: firstName,
