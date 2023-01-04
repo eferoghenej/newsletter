@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
@@ -19,8 +20,8 @@ app.get("/", (req, res) =>{
 
 //Setting up MailChimp
 mailchimp.setConfig({
-    apiKey: "cec04176707e3ffc35190aa675293ae0-us14",
-    server: "us14"
+    apiKey: process.env.API_KEY,
+    server: process.env.SERVER
     });
 
 app.post("/", (req, res) => {
@@ -29,7 +30,7 @@ app.post("/", (req, res) => {
     const lastName = req.body.lname;
     const email = req.body.email;
 
-    const listID = "f9fc6216f0";
+    const listID = process.env.LIST_ID;
     // Creating an object with the users data
     // const subscribingUser = {
     //     firstName: firstName,
@@ -73,8 +74,3 @@ app.listen(process.env.PORT || port, () =>{
     console.log("Server is up and running");
 })
 
-//API Key
-// cec04176707e3ffc35190aa675293ae0-us14
-
-//List/ Audience ID
-// f9fc6216f0
